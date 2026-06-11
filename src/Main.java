@@ -1,13 +1,84 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+    Monster m = new Monster();
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Please enter your nickname: ");
+    Player p = new Player(sc.nextLine());
+    System.out.println("Do you want an ASCII art to be shown? type \"true\" to turn it on. Type \"false\" to turn it off.");
+    boolean ASCIIart = sc.nextBoolean();
+    while (true){
+        System.out.println("How it currently looks:");
+        System.out.println("Player HP: " + p.HP() + " / " + p.maxHP());
+        System.out.println("Monster HP: " + m.HP());
+        if (ASCIIart){
+            System.out.println("                                                                                                                                                                                                         \n" +
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+                    "                                                                                                                                                                                                         \n" +
+                    "                                                                                                                                                      .                                                  \n" +
+                    "                                                                                               ..    #@#                             .:. .           ..      @@@@@@                                      \n" +
+                    "                                                                                            @@@ .   @@@@                             . .   . . @@@           @ @@@@@@@@                                  \n" +
+                    "                                                                                           =@=@    @@@@#                             :@@@...@@@@ @           @@@@@@@@@@    @@@                           \n" +
+                    "                                                                                        ::@@@@@  @@@@@@     :=:                       @@@ .:@ @@@@.    %@#         @@@@   .@ @#+.                        \n" +
+                    "                                                                                       @@@@@@@@#@@.@@@@#@+=+- -                       @=@ : @@@ .      @.@@@@              @@%.+#@@                      \n" +
+                    "                                                                                       @ @@@@@@*:#@@@@@#.%@@@=:                       @:@ ...     .   .%@#@ @@@@             =*+@ @@@@                   \n" +
+                    "                                                                                       @@@  *@#%@#:.@-#=%=@@@:  .@@@                  @@@                 @@@@ @.               @@@@ @.                  \n" +
+                    "                                                                                       .    =@@#. . #+%:  @@@=...@#@#                .@@@ ...       ..       @@@ +#=               @@@                   \n" +
+                    "                                                                                  -=: .  @@@        + =   @@@:  .@@@@               :=:.  ...       .          ..#@@@     .          ..                  \n" +
+                    "                                                                                  +.+: @@@@@.       @@@@@@    .:. @#@@@@@@         @@@=  @@@                     =@#@@@ :::                              \n" +
+                    "                                                                                  @@@ .@ @@@     :=:@ @@ @@@@     @.#.@@@@       @@@-@=@@@ @                      @@@#@@@@@                              \n" +
+                    "                                                                               @@@@ @+:@@@@@@@@  =#@@@@@@@@:@     @@@@@@@@     *@@ @@@.@ @@@           .::          @@@@@@@                              \n" +
+                    "                                                                               @ @@@@ =@@@@:@@@  @@*+-:@@@@@@       ::@@@*     % @@@@@@@@@             : :           @@@@@@                              \n" +
+                    "                                                                              .@@@ @=*:@.@@@@@@ .@+@%= @ @:.          @.@  .   *@=..@ @.               .::           @ @@@@.                             \n" +
+                    "                                                                              .@@@@@..:@@@@@@@@:.#@%   @@@@@@@@       @@@    .   . .@@@                 ...         .@@@@@#@@                            \n" +
+                    "                                                                              .@.@.-.::  @ @@@@::.       +@:@*@::        . ..  @@@..        %@@      .::...               @ @                            \n" +
+                    "                                                                               @@@:.@@@.:#@%@ @..        :@@@@@: .             @ @      .   @.@     .: .                  @@@                            \n" +
+                    "                  @@@@@                                                          =@@@ @.  ..@@@          @@@.   .@@@@@@        @@@     @@@. %@@    .  ::..===                                            \n" +
+                    "                  @.@@@                                                          #=#@@@@: .              @@@  .  @ @@ @                @.@:=*= =#=@@@     + +                                            \n" +
+                    "                  @@@@@             =*+:.                                        =@%@@@@: .              @@@     @@@@@@       @@@      @@@ *.+@@@#@.@     -=-                                            \n" +
+                    "                  .@@@@.       @@@@@@@@.:                                           @@@@.                @@@@@@@@@  ::.       @@@@         =*-@=@=@@@@@@@                                                \n" +
+                    "                   @@@-:       @ @.@@=@::                                                                #%#@@.=@@    =*=     @@@@ .          @@@.::.@@@@                                                \n" +
+                    "                    ..@@@      @@@@@@@@:                                                                 . :@@@@@@@@.:+ +.     @@@@@.           . : @@@@.@@@@                                            \n" +
+                    "                      @@@@.@@@.:. :@@@+@*..   @@@                                                       ::...  @@@ @..=#= .     .@@@. .         :::.@.@.@ @@@                                            \n" +
+                    "                    +##@@@ @ @ : .-@:@% #.: . @@@                                                      @@@-    @@@@@@:.  . .    .@@@+#*        @@@: @@@.@@@*@@@@::                                       \n" +
+                    "                    # +@@@@@@@@@@@@@@@@.# : .:@ @                                                     @@@@: ...@@@@ @.  +@@@   @@@@@@@@        @:@:     . @=@@:@.:                             @@@@@     \n" +
+                    "                    =#==#+@@@@@@@@.=@@@ @::   @ @                                                     @@@@ .@@@   @@@:  %@@@  :@:@*.=@@       .@@@ ..    .@@@@@@ . -%%=                 %@@#:  @+:=@     \n" +
+                    "                      :@ +@@@@@@@@@@@:@=%:: . @@@                                                   @@@@@@@@@ @     @@@ *@@@@@@@@@@@@@@@@@    .:..   @@@  @@@:@@@@ +*=*                 @##%@@.@@@@@     \n" +
+                    "                       *@#..##@@@   @@@@-:.:  @@@                                                   @@@: @=@@@@     @ @  @@@@@@:.:=:  @@@@::. .. .@@@@ @@@. @@@@:@@@#@+@@@:@@@@ @@@  @@@@@@@-@@@@%       \n" +
+                    "                          :=+:#@@@@:@@@@.@@@                                                       .@@@@@=@@:       @@@  @@#@@@ .: :@@@@@@. @@@   @@@@@@.@@@@  @@@@ @ .@@@@@@@@@@ @@@@=@+:-#@@@+@*       \n" +
+                    "                         @@@@@-@@@@-@:@@@@@@                                                    ..:.*@#@@@      .@@@= -  @.@     :-:@.@@@@@@@@@  @@@@@@#@@@@@@@@. @@@::@@@:@@@@@@@@@-@@@:#+--:@@@.       \n" +
+                    "                         @@=@@ @@@@:@@@@+@@@                                                    .:::.  @@@      :@.@:::  @@@        @@#@=@@@@@@  @@@@@+@ @@@@@:@: @@@  *@@@@@@@@..+@#@- - =:...          \n" +
+                    "                        .@@@@@        @@@@@@@@@                                             @@@++@@@:. @@@     ..@@@@ :-:@@%        @@%@@@@@@@@  @@@ @@@     @@@. @ @       .     .@=@=..:.              \n" +
+                    "                        ..  .         . . . @ @                              .              @ @:=@.@  .. :    . .@@@@.: :@ @.       @ @.  . @ @  @ @             .@@@              @@@=                  \n" +
+                    "                         ...                @@@             .                    .          @@@+-@@@:.   .     . @@@@ :-:%@#        @@@.  ..@@@  @@@   .          .        ..                            \n" +
+                    "                     .                                                               .                                                               .                                                   \n" +
+                    "                                                                                                                                                                                                         ");
+
+        }
+        System.out.println();
+
+        System.out.println("What is your move? \nPress 1 to attack \nPress 2 to heal");
+        switch (sc.nextInt()){
+            case 1:
+                p.attack(m);
+                break;
+            case 2:
+                p.heal();
+                break;
+            default:
+                System.out.println("Invalid input next time please give us a valdi input");
+        }
+
+        if (m.isAlive() && p.isAlive()){
+            m.attackPlayer(p);
+        }
+
+        if (!m.isAlive()){
+            System.out.println(p.nickname() + " have won.");
+            return;
+        } else if (!p.isAlive()) {
+            System.out.println("You have been defeated by monster.");
+            return;
+        }
+    }
 }
